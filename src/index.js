@@ -133,7 +133,7 @@ class HashMap {
     for (let i = 0; i < this.buckets.length; i++) {
       const bucket = this.buckets[i];
       for (let j = 0; j < bucket.length; j++) {
-        entriesArray.push(bucket[j]);
+        entriesArray.push([bucket[j].key, bucket[j].value]);
       }
     }
     return entriesArray;
@@ -164,7 +164,7 @@ map.set("Mammaw", 72);
 map.set("Gran", 67);
 
 console.log(`Get: ${map.get("Carson")}`);
-console.log(`Has: ${map.has("Jacob")}`);
+console.log(`Has: ${map.has("Scott")}`);
 console.log(`Remove: ${map.remove("Scott")}`);
 console.log(`Has: ${map.has("Scott")}`);
 console.log(`Length: ${map.length()}`);
