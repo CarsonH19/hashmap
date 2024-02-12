@@ -100,6 +100,12 @@ class HashMap {
     return mapSize;
   }
 
+  clear() {
+    this.capacity = 10;
+    this.size = 0;
+    this.buckets = new Array(this.capacity).fill(null).map(() => []);
+  }
+
 
   resize(newCapacity) {
     const oldBuckets = this.buckets;
