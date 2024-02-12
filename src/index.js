@@ -154,3 +154,22 @@ class HashMap {
     }
   }
 }
+
+
+const map = new HashMap();
+map.set("Carson", 29);
+map.set("Joohee", 30);
+map.set("Scott", 40);
+map.set("Mammaw", 72);
+map.set("Gran", 67);
+
+console.log(`Get: ${map.get("Carson")}`);
+console.log(`Has: ${map.has("Jacob")}`);
+console.log(`Remove: ${map.remove("Scott")}`);
+console.log(`Has: ${map.has("Scott")}`);
+console.log(`Length: ${map.length()}`);
+console.log(`Keys: ${map.keys()}`);
+console.log(`Values: ${map.values()}`);
+console.log(`Entries: ${map.entries()}`);
+console.log(`Clear: ${map.clear()}`);
+console.log(`Length: ${map.length()}`);
