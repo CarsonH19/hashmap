@@ -1,4 +1,4 @@
-import './style.css';
+import "./style.css";
 
 class HashMap {
   constructor(initialCapacity = 10, loadFactor = 0.75) {
@@ -17,7 +17,7 @@ class HashMap {
       hashCode %= this.capacity;
     }
 
-  return hashCode;
+    return hashCode;
   }
 
   set(key, value) {
@@ -25,22 +25,69 @@ class HashMap {
     if (index < 0 || index >= this.buckets.length) {
       throw new Error("Trying to access index out of bound");
     }
-    
+
     const bucket = this.buckets[index];
     for (let i = 0; i < bucket.length; i++) {
       const entry = bucket[i];
       if (entry.key === key) {
         entry.value = value; // Update value if key exists
-        return
+        return;
       }
     }
     // Add new entry if key doesn't exist
-    bucket.push({ key, value} );
+    bucket.push({ key, value });
     this.size++;
 
     // Check load factor & resize if needed
     if (this.size / this.capacity >= this.loadFactor) {
       this.resize(this.capacity * 2);
+    }
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bound");
+    }
+
+    const bucket = this.buckets[index];
+    for (const entry of bucket) {
+      if (entry.key === key) {
+        return entry.value;
+      }
+    }
+  }
+
+  has(key) {
+    const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bound");
+    }
+
+    const bucket = this.buckets[index];
+    for (const entry of bucket) {
+      if (entry.key === key) {
+        return true;
+      } 
+    }
+    return false;
+  }
+
+  remove(key) {
+    const index = this.hash(key);
+    if (index < 0 || index >= this.buckets.length) {
+      throw new Error("Trying to access index out of bound");
+    }
+
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i].key === key) {
+        const entryIndex = bucket[i];
+        entry.splice(entryIndex, 1);
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
