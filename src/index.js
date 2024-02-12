@@ -91,7 +91,7 @@ class HashMap {
 
   length() {
     let mapSize = 0;
-    for (let i = 0; i < this.buckets.length; i ++) {
+    for (let i = 0; i < this.buckets.length; i++) {
       const bucket = this.buckets[i];
       for (let j = 0; j < bucket.length; j++) {
         mapSize++;
@@ -108,15 +108,25 @@ class HashMap {
 
   keys() {
     let keyArray = [];
-    for (let i = 0; i < this.buckets.length; i ++) {
+    for (let i = 0; i < this.buckets.length; i++) {
       const bucket = this.buckets[i];
       for (let j = 0; j < bucket.length; j++) {
-        array.push(bucket[j].key);
+        keyArray.push(bucket[j].key);
       }
     }
     return keyArray;
   }
 
+  values() {
+    let valueArray = [];
+    for (let i = 0; i < this.buckets.length; i++) {
+      const bucket = this.buckets[i];
+      for (let j = 0; j < bucket.length; j++) {
+        valueArray.push(bucket[j].value);
+      }
+    }
+    return valueArray;
+  }
 
   resize(newCapacity) {
     const oldBuckets = this.buckets;
