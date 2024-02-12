@@ -68,7 +68,7 @@ class HashMap {
     for (const entry of bucket) {
       if (entry.key === key) {
         return true;
-      } 
+      }
     }
     return false;
   }
@@ -82,13 +82,11 @@ class HashMap {
     const bucket = this.buckets[index];
     for (let i = 0; i < bucket.length; i++) {
       if (bucket[i].key === key) {
-        const entryIndex = bucket[i];
-        entry.splice(entryIndex, 1);
+        bucket.splice(i, 1);
         return true;
-      } else {
-        return false;
       }
     }
+    return false;
   }
 
   resize(newCapacity) {
