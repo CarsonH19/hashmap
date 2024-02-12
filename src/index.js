@@ -128,6 +128,17 @@ class HashMap {
     return valueArray;
   }
 
+  entries() {
+    let entriesArray = [];
+    for (let i = 0; i < this.buckets.length; i++) {
+      const bucket = this.buckets[i];
+      for (let j = 0; j < bucket.length; j++) {
+        entriesArray.push(bucket[j]);
+      }
+    }
+    return entriesArray;
+  }
+
   resize(newCapacity) {
     const oldBuckets = this.buckets;
     this.capacity = newCapacity;
